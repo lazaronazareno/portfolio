@@ -26,7 +26,7 @@ function Navbar ({ navToggled, handleNavToggle }) {
           ><Text tid='navLink1' />
           </NavLink>
           <NavLink
-            to='/proyects'
+            to='/projects'
             style={({ isActive }) => ({
               color: isActive ? 'grey' : ''
             })}

@@ -379,7 +379,7 @@ button:disabled {
   border: 1px solid var(--border);
 }
 
-.login-form, .newProyect-form {
+.login-form, .newProject-form {
   flex-direction: column;
   display: flex;
   padding: 2rem;
@@ -390,17 +390,17 @@ button:disabled {
   flex-grow: 1;
 }
 
-.login-form > input, .newProyect-form > input, .newProyect-form > div > input  {
+.login-form > input, .newProject-form > input, .newProject-form > div > input  {
   border-bottom: 1rem solid var(--border);
   padding: .5rem;
   transform: skew(-21deg);
 }
 
-.login-form > input:focus-visible, .newProyect-form > input:focus-visible, .newProyect-form > div > input:focus-visible {
+.login-form > input:focus-visible, .newProject-form > input:focus-visible, .newProject-form > div > input:focus-visible {
   outline: 1px solid var(--border);
 }
 
-.login-form > *, .newProyect-form > * {
+.login-form > *, .newProject-form > * {
   width: 70%;
 }
 

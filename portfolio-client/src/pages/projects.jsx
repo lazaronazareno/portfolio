@@ -9,7 +9,7 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 import { LanguageContext } from '../context/langContext'
 import { DynamicIcon, works } from '../works/works'
 
-const Proyects = () => {
+const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const { userLanguage } = useContext(LanguageContext)
 
@@ -91,4 +91,4 @@ const Proyects = () => {
   )
 }
 
-export default Proyects
+export default Projects

@@ -68,7 +68,7 @@ const NewProject = () => {
 
     setError(false)
 
-    const proyectValues = {
+    const projectValues = {
       titleEs,
       titleEn,
       descriptionEs,
@@ -79,10 +79,10 @@ const NewProject = () => {
       repo
     }
 
-    console.log(proyectValues)
+    console.log(projectValues)
   }
   return (
-    <form className='newProyect-form' onSubmit={handleSubmit}>
+    <form className='newProject-form' onSubmit={handleSubmit}>
       <h1>Nuevo Projecto</h1>
       <input
         type='text'

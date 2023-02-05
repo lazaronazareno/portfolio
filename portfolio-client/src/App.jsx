@@ -6,7 +6,7 @@ import ColorProvider from './context/colorContext'
 import { LanguageProvider } from './context/langContext'
 import Login from './pages/login'
 import Profile from './pages/profile'
-import Proyects from './pages/proyects'
+import Projects from './pages/projects'
 
 function App() {
   const [navToggled, setNavToggled] = useState(false)
@@ -30,10 +30,10 @@ function App() {
             }
             />
             <Route
-              exact path='/proyects' element={
+              exact path='/projects' element={
                 <>
                   <Navbar navToggled={navToggled} handleNavToggle={handleNavToggle} />
-                  <Proyects />
+                  <Projects />
                 </>
             }
             />

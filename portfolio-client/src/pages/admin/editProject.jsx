@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const EditProyect = () => {
+const EditProject = () => {
   const [values, setValues] = useState({
     titleEs: '',
     titleEn: '',
@@ -68,7 +68,7 @@ const EditProyect = () => {
 
     setError(false)
 
-    const proyectValues = {
+    const projectValues = {
       titleEs,
       titleEn,
       descriptionEs,
@@ -79,10 +79,10 @@ const EditProyect = () => {
       repo
     }
 
-    console.log(proyectValues)
+    console.log(projectValues)
   }
   return (
-    <form className='newProyect-form' onSubmit={handleSubmit}>
+    <form className='newProject-form' onSubmit={handleSubmit}>
       <h1>Nuevo Projecto</h1>
       <input
         type='text'
@@ -152,4 +152,4 @@ const EditProyect = () => {
   )
 }
 
-export default EditProyect
+export default EditProject
