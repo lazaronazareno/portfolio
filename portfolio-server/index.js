@@ -1,6 +1,9 @@
 import express from 'express'
+import { conn } from './config/db.js'
 
 const app = express()
+
+conn()
 
 app.use(express.json({ extended: true }))
 
