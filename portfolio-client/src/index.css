@@ -251,7 +251,7 @@ main > article > .article-nav-section {
 main > article > .article-description-section {
   flex-direction: column;
   justify-content: flex-end;
-  padding: 4rem;
+  padding: 1rem;
 }
 
 main > article > .article-description-section > p {
@@ -276,13 +276,13 @@ main > article > .article-description-section > p > a:hover {
 main > article > .article-title-section {
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
 }
 
 main > article > .article-title-section > h2 {
   flex-basis: 50%;
   font-family: "Montserrat", sans-serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
   line-height: 3rem;
   margin: 0px;
   text-transform: uppercase;
@@ -316,8 +316,16 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
   border-left: 1px solid var(--border);
 }
 
+.image-gallery { 
+  width: 100%;
+}
+
+.image-gallery * {
+  height: 100%;
+}
+
 .image-gallery-image {
-  aspect-ratio: 2/1.1;
+  aspect-ratio: 16/8;
 }
 
 .image-gallery-thumbnail.active, .image-gallery-thumbnail:focus, .image-gallery-thumbnail:hover {
@@ -376,6 +384,8 @@ button:disabled {
 
 .login-form, .login-image {
   flex-basis: 50%;
+  align-items: center;
+  text-align: center;
   border: 1px solid var(--border);
 }
 
@@ -385,9 +395,13 @@ button:disabled {
   padding: 2rem;
   gap: 1rem;
   justify-content: center;
-  align-items: center;
-  text-align: center;
   flex-grow: 1;
+}
+
+.newProject-form {
+  flex-basis: 60%;
+  text-align: left;
+  height: max-content;
 }
 
 .login-form > input, .newProject-form > input, .newProject-form > div > input  {
@@ -396,11 +410,15 @@ button:disabled {
   transform: skew(-21deg);
 }
 
+.newProject-form > div > input {
+  flex-grow: .9;
+}
+
 .login-form > input:focus-visible, .newProject-form > input:focus-visible, .newProject-form > div > input:focus-visible {
   outline: 1px solid var(--border);
 }
 
-.login-form > *, .newProject-form > * {
+.login-form > * {
   width: 70%;
 }
 
@@ -408,7 +426,56 @@ button:disabled {
   aspect-ratio: 1/2;
 }
 
-@media (max-width: 1200px) {
+.admin {
+  display: flex;
+  overflow: auto;
+}
+
+.newProject-form > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  flex-basis: 40%;
+}
+
+.projects > div {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.projects > div > div > span, .newProject-form > div > span {
+  border: 1px solid var(--border);
+  padding: 0rem .5rem;
+  border-radius: 16px;
+}
+
+.error-alert {
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+.error {
+  background-color:crimson ;
+  color: white;
+}
+
+@media (max-width: 1200px) or (max-height: 800px) {
   #nav-mobile-section, #profile-nav-mobile-section {
     flex-basis: calc(100% * 0.75);
   }
@@ -497,6 +564,21 @@ button:disabled {
   .profile > article > .article-footer-copy {
     border-bottom: 1px solid var(--border);
     order: 5;
+  }
+}
+
+@media (max-width: 850px) {
+  .admin {
+    flex-direction: column;
+  }
+
+  .newProject-form > div{
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .newProject-form > div > input{
+    width: 100%;
   }
 }
 
