@@ -26,23 +26,20 @@ const ProjectSchema = mongoose.Schema({
     required: true,
     trim: true
   },
-  images: [
+  images:
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.Array,
       ref: 'Image',
       required: true
-    }
-  ],
-  stack: [
+    },
+  stack:
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.Array,
       ref: 'Stack',
       required: true
-    }
-  ],
+    },
   deploy: {
     type: String,
-    required: true,
     trim: true
   },
   repo: {

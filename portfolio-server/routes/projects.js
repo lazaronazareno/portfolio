@@ -10,7 +10,7 @@ router.post('/', AuthMiddleware, [
   check('name', 'El nombre del proyecto es requerido').not().isEmpty()
 ], projectsControllers.createProject)
 
-router.get('/', AuthMiddleware, projectsControllers.getProjects)
+router.get('/', projectsControllers.getProjects)
 
 router.put('/:id', AuthMiddleware, [
   check('name', 'El nombre del proyecto es requerido').not().isEmpty()

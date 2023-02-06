@@ -22,7 +22,7 @@ export const createProject = async (req, res) => {
 
 export const getProjects = async (req, res) => {
   try {
-    const projects = await Project.find({ user: req.user.id })
+    const projects = await Project.find()
 
     res.json(projects)
   } catch (error) {
@@ -36,14 +36,10 @@ export const updateProject = async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() })
   }
-  const { name, titleEn, titleEs, descriptionEs, descriptionEn, images, stack, deploy, repo } = req.body
-  const newProject = {}
-
-  if (name) {
-    newProject.name = name
-  }
 
   try {
+    const { titleEn, titleEs, descriptionEs, descriptionEn, images, stack, deploy, repo } = req.body
+
     let project = await Project.findById(req.params.id)
 
     if (!project) {
@@ -53,6 +49,8 @@ export const updateProject = async (req, res) => {
     if (project.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: 'No Autorizado' })
     }
+
+    const newProject = {}
 
     newProject.titleEn = titleEn
     newProject.titleEs = titleEs
