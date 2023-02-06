@@ -1,6 +1,11 @@
 import mongoose from 'mongoose'
 
 const ProjectSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
   titleEn: {
     type: String,
     required: true,
@@ -21,16 +26,20 @@ const ProjectSchema = mongoose.Schema({
     required: true,
     trim: true
   },
-  images: {
-    type: mongoose.Schema.Types.Array,
-    ref: 'Image',
-    required: true
-  },
-  stack: {
-    type: mongoose.Schema.Types.Array,
-    ref: 'Stack',
-    required: true
-  },
+  images: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Image',
+      required: true
+    }
+  ],
+  stack: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Stack',
+      required: true
+    }
+  ],
   deploy: {
     type: String,
     required: true,

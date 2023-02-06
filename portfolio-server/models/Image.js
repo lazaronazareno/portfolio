@@ -1,6 +1,11 @@
 import mongoose from 'mongoose'
 
 const ImageSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
   original: {
     type: String,
     required: true,
