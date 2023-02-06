@@ -46,12 +46,12 @@ const Profile = () => {
           </div>
         </div>
         <div className='article-stack'>
-          <SiHtml5 size={64} />
-          <SiCss3 size={64} />
-          <SiJss size={64} />
-          <SiReact size={64} />
-          <SiNodedotjs size={64} />
-          <SiMysql size={64} />
+          <SiHtml5 size={80} />
+          <SiCss3 size={80} />
+          <SiJss size={80} />
+          <SiReact size={80} />
+          <SiNodedotjs size={80} />
+          <SiMysql size={80} />
         </div>
         <div className='article-footer-links'>
           <a type='button' href='mailto:lazaronazareno@gmail.com?Subject=Contact%20from%20portfolio' target='_blank' rel='noopener noreferrer'>

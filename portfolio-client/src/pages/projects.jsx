@@ -1,33 +1,56 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import 'react-image-gallery/styles/css/image-gallery.css'
+import ReactImageGallery from 'react-image-gallery'
 import {
   FaArrowLeft,
   FaArrowRight
 } from 'react-icons/fa'
 import { MdDoubleArrow } from 'react-icons/md'
-import ReactImageGallery from 'react-image-gallery'
-import 'react-image-gallery/styles/css/image-gallery.css'
+import { DynamicIcon } from '../utils'
+
 import { LanguageContext } from '../context/langContext'
-import { DynamicIcon, works } from '../works/works'
+import ProjectContext from '../context/projects/projectContext'
+import AlertContext from '../context/alert/alertContext'
 
 const Projects = () => {
+  const projectsContext = useContext(ProjectContext)
+  const alertContext = useContext(AlertContext)
+
+  const { projects, error, getProjects } = projectsContext
+  const { alert, showAlert } = alertContext
+
   const [activeIndex, setActiveIndex] = useState(0)
   const { userLanguage } = useContext(LanguageContext)
 
   const handleLeftClick = () => {
-    const previousIndex = activeIndex === 0 ? works.length - 1 : activeIndex - 1
+    const previousIndex = activeIndex === 0 ? projects.length - 1 : activeIndex - 1
 
     setActiveIndex(previousIndex)
   }
 
   const handleRightClick = () => {
-    const nextIndex = activeIndex === works.length - 1 ? 0 : activeIndex + 1
+    const nextIndex = activeIndex === projects.length - 1 ? 0 : activeIndex + 1
 
     setActiveIndex(nextIndex)
   }
 
+  useEffect(() => {
+    if (error) {
+      showAlert(error.msg, error.category)
+    }
+    getProjects()
+  }, [error])
+
   return (
     <main>
-      {works.map((item, index) => (
+      {alert
+        ? (
+          <div className={`error-alert ${alert.category}`}>
+            {alert.msg}
+          </div>
+          )
+        : null}
+      {projects.map((item, index) => (
         <article
           key={index}
           data-index={index}
@@ -39,7 +62,7 @@ const Projects = () => {
             <ReactImageGallery
               items={item.images}
               alt={userLanguage === 'es' ? item.titleEs : item.titleEn}
-              thumbnailPosition='left'
+              showThumbnails={false}
               showPlayButton={false}
               showFullscreenButton={false}
               renderLeftNav={(onClick, disabled) => (
@@ -61,7 +84,9 @@ const Projects = () => {
           <div className='article-title-section article-section'>
             <h2>{userLanguage === 'es' ? item.titleEs : item.titleEn}</h2>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-              <a type='button' href={item.deploy} target='_blank' rel='noopener noreferrer' className='button'>Visitar</a>
+              {item.deploy && (
+                <a type='button' href={item.deploy} target='_blank' rel='noopener noreferrer' className='button'>Visitar</a>
+              )}
               <a type='button' href={item.repo} target='_blank' rel='noopener noreferrer' className='alt-button'>Repositorio</a>
             </div>
           </div>
@@ -71,7 +96,7 @@ const Projects = () => {
               type='button'
               onClick={handleLeftClick}
               title='arrow'
-              disabled={works.length <= 1}
+              disabled={projects.length <= 1}
             >
               <FaArrowLeft size={92} />
             </button>
@@ -80,7 +105,7 @@ const Projects = () => {
               type='button'
               onClick={handleRightClick}
               title='arrow'
-              disabled={works.length <= 1}
+              disabled={projects.length <= 1}
             >
               <FaArrowRight size={92} />
             </button>

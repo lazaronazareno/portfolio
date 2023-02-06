@@ -1,11 +1,27 @@
-import React, { useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import AlertContext from '../context/alert/alertContext'
+import AuthContext from '../context/auth/authContext'
+import { LanguageContext } from '../context/langContext'
+import { dictionaryList } from '../lang'
+import { Text } from '../lang/text'
 
 const Login = () => {
+  const navigate = useNavigate()
+
+  const alertContext = useContext(AlertContext)
+  const { alert, showAlert } = alertContext
+
+  const authContext = useContext(AuthContext)
+  const { isAuth, error, login } = authContext
+
+  const { userLanguage } = useContext(LanguageContext)
+
   const [values, setValues] = useState({
     email: '',
     password: ''
   })
-  const [error, setError] = useState(false)
 
   const { email, password } = values
 
@@ -20,18 +36,26 @@ const Login = () => {
     e.preventDefault()
 
     if (email.trim() === '' || password.trim() === '') {
-      setError('Todos los campos son obligatorios')
+      showAlert('Todos los campos son obligatorios', 'error')
       return
     }
 
-    setError(false)
-    console.log(values)
+    login({ email, password })
   }
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate('/admin')
+    }
+    if (error) {
+      showAlert(error.msg, error.category)
+    }
+  }, [error, isAuth])
 
   return (
     <main className='login'>
       <form onSubmit={handleSubmit} className='login-form'>
-        <h1>Iniciar Sesion</h1>
+        <h1><Text tid='login' /></h1>
         <input
           type='text'
           placeholder='Email'
@@ -41,19 +65,25 @@ const Login = () => {
         />
         <input
           type='password'
-          placeholder='Contraseña'
+          placeholder={userLanguage === 'es' ? dictionaryList.es.password : dictionaryList.en.password}
           value={password}
           name='password'
           onChange={handleChange}
         />
-        <button className='button' type='submit'>Iniciar Sesion</button>
-        {error && <span style={{ color: 'crimson' }}>{error}</span>}
+        <button className='button' type='submit'><Text tid='login' /></button>
       </form>
       <img
         className='login-image'
-        src='https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-        alt=''
+        src='https://i.ibb.co/qdJwv5c/dise195177o-sin-t195173tulo-1.webp'
+        alt='github/lazaronazareno - projects'
       />
+      {alert
+        ? (
+          <div className={`error-alert ${alert.category}`}>
+            {alert.msg}
+          </div>
+          )
+        : null}
     </main>
   )
 }
