@@ -5,10 +5,21 @@ import {
   FaEnvelope,
   FaUser
 } from 'react-icons/fa'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Text } from '../lang/text'
+import AuthContext from '../context/auth/authContext'
+import { useContext, useEffect } from 'react'
+import useToken from '../hooks/useToken'
 
-function Navbar ({ navToggled, handleNavToggle }) {
+function Navbar({ navToggled, handleNavToggle }) {
+  const { token } = useToken()
+
+  const authContext = useContext(AuthContext)
+  const { getUser } = authContext
+
+  useEffect(() => {
+    getUser(token)
+  }, [])
   return (
     <nav className='nav' data-toggled={navToggled} data-transitionable='false'>
       <div id='nav-logo-section' className='nav-section'>
@@ -34,15 +45,15 @@ function Navbar ({ navToggled, handleNavToggle }) {
           </NavLink>
         </div>
         <div id='nav-social-section' className='nav-section'>
-          <Link to='#' title='github'>
+          <a type='button' href='https://github.com/lazaronazareno' title='github' target='_blank' rel='noopener noreferrer'>
             <FaGithub size={32} />
-          </Link>
-          <Link to='#' title='linkedin'>
+          </a>
+          <a type='button' href='https://www.linkedin.com/in/lazaro-vega-sanchez' title='linkedin' target='_blank' rel='noopener noreferrer'>
             <FaLinkedin size={32} />
-          </Link>
-          <Link to='#' title='mail'>
+          </a>
+          <a type='button' href='mailto:lazaronazareno@gmail.com?Subject=Contact%20from%20portfolio' target='_blank' rel='noopener noreferrer'>
             <FaEnvelope size={32} />
-          </Link>
+          </a>
         </div>
       </div>
       <button id='nav-toggle-button' type='button' title='menu' onClick={handleNavToggle}>
