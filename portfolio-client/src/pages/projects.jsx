@@ -21,8 +21,6 @@ const Projects = () => {
   const { alert, showAlert } = alertContext
 
   const [activeIndex, setActiveIndex] = useState(0)
-  const [shuffledProjects, setShuffledProjects] = useState(null)
-
   const { userLanguage } = useContext(LanguageContext)
 
   const handleLeftClick = () => {
@@ -42,7 +40,6 @@ const Projects = () => {
       showAlert(error.msg, error.category)
     }
     getProjects()
-    setShuffledProjects(projects.sort(() => 0.5 - Math.random()))
   }, [error])
 
   return (
@@ -54,7 +51,7 @@ const Projects = () => {
           </div>
           )
         : null}
-      {shuffledProjects && shuffledProjects.length > 0 && shuffledProjects.map((item, index) => (
+      {projects.map((item, index) => (
         <article
           key={index}
           data-index={index}
