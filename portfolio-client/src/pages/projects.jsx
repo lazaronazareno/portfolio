@@ -19,9 +19,10 @@ const Projects = () => {
 
   const { projects, error, getProjects } = projectsContext
   const { alert, showAlert } = alertContext
-  const shuffledProjects = projects.sort(() => 0.5 - Math.random())
 
   const [activeIndex, setActiveIndex] = useState(0)
+  const [shuffledProjects, setShuffledProjects] = useState(null)
+
   const { userLanguage } = useContext(LanguageContext)
 
   const handleLeftClick = () => {
@@ -41,6 +42,7 @@ const Projects = () => {
       showAlert(error.msg, error.category)
     }
     getProjects()
+    setShuffledProjects(projects.sort(() => 0.5 - Math.random()))
   }, [error])
 
   return (
