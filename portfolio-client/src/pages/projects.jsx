@@ -19,6 +19,7 @@ const Projects = () => {
 
   const { projects, error, getProjects } = projectsContext
   const { alert, showAlert } = alertContext
+  const shuffledProjects = projects.sort(() => 0.5 - Math.random())
 
   const [activeIndex, setActiveIndex] = useState(0)
   const { userLanguage } = useContext(LanguageContext)
@@ -51,7 +52,7 @@ const Projects = () => {
           </div>
           )
         : null}
-      {projects.map((item, index) => (
+      {shuffledProjects && shuffledProjects.length > 0 && shuffledProjects.map((item, index) => (
         <article
           key={index}
           data-index={index}

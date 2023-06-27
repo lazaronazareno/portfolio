@@ -10,7 +10,7 @@ export default (state, action) => {
     case GET_PROJECTS:
       return {
         ...state,
-        projects: action.payload.sort(() => 0.5 - Math.random())
+        projects: action.payload
       }
     case ADD_PROJECT:
       return {
