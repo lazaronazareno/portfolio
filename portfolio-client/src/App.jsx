@@ -17,7 +17,7 @@ import AlertState from './context/alert/alertState'
 import AuthState from './context/auth/authState'
 import ProjectState from './context/projects/projectState'
 
-function App() {
+function App () {
   const { token } = useToken()
 
   if (token) {
@@ -26,7 +26,6 @@ function App() {
   const [navToggled, setNavToggled] = useState(false)
 
   const handleNavToggle = () => {
-    // Invertimos el valor de navToggled
     setNavToggled(!navToggled)
   }
 

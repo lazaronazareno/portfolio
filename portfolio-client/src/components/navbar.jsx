@@ -11,7 +11,7 @@ import AuthContext from '../context/auth/authContext'
 import { useContext, useEffect } from 'react'
 import useToken from '../hooks/useToken'
 
-function Navbar({ navToggled, handleNavToggle }) {
+function Navbar ({ navToggled, handleNavToggle }) {
   const { token } = useToken()
 
   const authContext = useContext(AuthContext)
@@ -32,15 +32,19 @@ function Navbar({ navToggled, handleNavToggle }) {
           <NavLink
             to='/'
             style={({ isActive }) => ({
-              color: isActive ? 'grey' : ''
+              color: isActive ? 'grey' : '',
+              pointerEvents: isActive ? 'none' : ''
             })}
+            onClick={handleNavToggle}
           ><Text tid='navLink1' />
           </NavLink>
           <NavLink
             to='/projects'
             style={({ isActive }) => ({
-              color: isActive ? 'grey' : ''
+              color: isActive ? 'grey' : '',
+              pointerEvents: isActive ? 'none' : ''
             })}
+            onClick={handleNavToggle}
           ><Text tid='navLink2' />
           </NavLink>
         </div>

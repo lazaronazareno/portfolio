@@ -1,8 +1,12 @@
 .article-profile-section {
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: column;
   justify-content: center;
   padding: 0 4rem;
+}
+
+.article-profile-section svg {
+  color: var(--border);
 }
 
 .article-profile-section > h1, .article-profile-section > h2 {
@@ -22,8 +26,6 @@
 
 .article-description {
   display: flex;
-  gap: 3rem;
-  font-size: 1.5rem;
   flex-wrap: wrap;
   color: var(--border);
   align-items: center;
@@ -36,9 +38,14 @@
   width: 90%;
 }
 
+.article-description > a {
+  color: var(--border);
+}
+
 .article-links {
   display: flex;
   justify-content: space-evenly;
+  padding-top: 1rem;
 }
 
 .article-links a:hover {

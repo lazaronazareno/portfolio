@@ -8,15 +8,16 @@ import {
   SiNodedotjs,
   SiHtml5,
   SiCss3,
-  SiJss,
   SiReact,
-  SiMysql
+  SiMysql,
+  SiJavascript
 } from 'react-icons/si'
 import { MdDoubleArrow } from 'react-icons/md'
 import './profile.css'
 import { Text } from '../lang/text'
 import { LanguageContext } from '../context/langContext'
 import { dictionaryList } from '../lang'
+import { NavLink } from 'react-router-dom'
 
 const Profile = () => {
   const { userLanguage } = useContext(LanguageContext)
@@ -29,9 +30,10 @@ const Profile = () => {
         >
           <h1>Lazaro Vega Sanchez</h1>
           <h2><Text tid='occupation' /></h2>
+          <MdDoubleArrow />
           <div className='article-description'>
-            <MdDoubleArrow />
             <span><Text tid='intro' /></span>
+            <NavLink to='/projects'><Text tid='intro-link' /></NavLink>
           </div>
           <div className='article-links'>
             <a type='button' href='https://github.com/lazaronazareno' title='github' target='_blank' rel='noopener noreferrer'>
@@ -48,22 +50,22 @@ const Profile = () => {
         <div className='article-stack'>
           <SiHtml5 size={80} />
           <SiCss3 size={80} />
-          <SiJss size={80} />
+          <SiJavascript size={80} />
           <SiReact size={80} />
           <SiNodedotjs size={80} />
           <SiMysql size={80} />
         </div>
         <div className='article-footer-links'>
           <a type='button' href='mailto:lazaronazareno@gmail.com?Subject=Contact%20from%20portfolio' target='_blank' rel='noopener noreferrer'>
-            <h2>lazaronazareno@gmail.com</h2>
+            <h3>lazaronazareno@gmail.com</h3>
           </a>
           <a type='button' href='https://github.com/lazaronazareno' target='_blank' rel='noopener noreferrer'>
-            <h2>github/lazaronazareno</h2>
+            <h3>github/lazaronazareno</h3>
           </a>
 
         </div>
         <div className='article-footer-copy'>
-          <h2><Text tid='copyright' /> &copy;2023</h2>
+          <h3><Text tid='copyright' /> &copy;2023</h3>
         </div>
       </article>
     </main>

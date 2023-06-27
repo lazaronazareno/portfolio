@@ -72,10 +72,8 @@ const Login = () => {
         />
         <button className='button' type='submit'><Text tid='login' /></button>
       </form>
-      <img
+      <div
         className='login-image'
-        src='https://i.ibb.co/qdJwv5c/dise195177o-sin-t195173tulo-1.webp'
-        alt='github/lazaronazareno - projects'
       />
       {alert
         ? (

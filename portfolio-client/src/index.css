@@ -56,7 +56,7 @@ a:hover {
 }
 
 .nav .nav-section, .profile-nav .profile-nav-section {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   gap: 1rem;
   border-left: 1px solid var(--border);
@@ -66,8 +66,8 @@ a:hover {
 }
 
 .nav .nav-section a, .profile-nav .profile-nav-section a,
-.article-footer-links > a > h2, 
-.article-footer-copy > h2 {
+.article-footer-links > a > h3, 
+.article-footer-copy > h3 {
   font-weight: bold;
   font-style: italic;
 }
@@ -135,13 +135,13 @@ a:hover {
 }
 
 #nav-social-section, #profile-nav-social-section {
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .theme-button, .button, .alt-button {
   background-color: var(--border);
   cursor: pointer;
-  --width: 150px;
+  --width: 120px;
   --timing: 2s;
   border: 0;
   width: var(--width);
@@ -149,7 +149,7 @@ a:hover {
   color: var(--textDark);
   font-weight: bold;
   transition: all 0.2s;
-  height: 35px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,6 +157,7 @@ a:hover {
   text-transform: uppercase;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1rem;
+  text-align: center;
 }
 
 .theme-button:hover {
@@ -266,7 +267,7 @@ main > article > .article-description-section > p > a:hover {
 
 .article-description-stack {
   display: flex;
-  gap: 2.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
   padding: 1rem;
@@ -306,6 +307,9 @@ main > article > .article-nav-section > .article-nav-button {
   color: var(--textLight);
   font-size: 3rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main > article > .article-nav-section > .article-nav-button:hover {
@@ -340,7 +344,7 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
 
 .lang-text:hover, .text-active {
   font-weight: bold;
-  transform: scale(1.2);
+  transform: scale(1.5);
 }
 
 button:disabled {
@@ -424,6 +428,9 @@ button:disabled {
 
 .login-image {
   aspect-ratio: 1/2;
+  background: url('https://i.ibb.co/d45vCgQ/Captura-de-pantalla-2023-02-10-120252.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .admin {
@@ -556,9 +563,10 @@ button:disabled {
     order: 3;
   }
 
-  main > article > .article-nav-section, .profile > article > .article-footer-links {
+  main > article > .article-nav-section,
+   .profile > article > .article-footer-links {
     border-bottom: 1px solid var(--border);
-    order: 4;
+    order: 1;
   }
 
   .profile > article > .article-footer-copy {
@@ -636,7 +644,12 @@ button:disabled {
   }
 
   #nav-social-section > a, #profile-nav-social-section > a {
-    font-size: 2rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  #nav-social-section, #profile-nav-social-section {
+    flex-direction: column;
   }
 
   #nav-contact-section, #profile-nav-contact-section {
@@ -649,7 +662,7 @@ button:disabled {
   }
 
   main > article > .article-title-section, .profile > article > .article-profile-section {
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .profile > article > .article-profile-section {
@@ -667,7 +680,7 @@ button:disabled {
   }
 
   main > article > .article-description-section {
-    padding: 2rem;
+    padding: 1rem;
   }
 
   main > article > .article-description-section > p {
@@ -682,7 +695,12 @@ button:disabled {
 @media (max-width: 600px){
   main > article > .article-title-section {
     flex-direction: column;
-    gap: 3rem;
+    gap: 1rem;
+  }
+  
+  svg:not(.nav-section svg, #nav-toggle-button svg) {
+    width: 52px;
+    height: 52px;
   }
 }
 

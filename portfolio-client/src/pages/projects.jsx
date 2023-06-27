@@ -1,16 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import 'react-image-gallery/styles/css/image-gallery.css'
-import ReactImageGallery from 'react-image-gallery'
+/* import ReactImageGallery from 'react-image-gallery' */
 import {
   FaArrowLeft,
   FaArrowRight
 } from 'react-icons/fa'
-import { MdDoubleArrow } from 'react-icons/md'
+/* import { MdDoubleArrow } from 'react-icons/md' */
 import { DynamicIcon } from '../utils'
 
 import { LanguageContext } from '../context/langContext'
 import ProjectContext from '../context/projects/projectContext'
 import AlertContext from '../context/alert/alertContext'
+import { Text } from '../lang/text'
 
 const Projects = () => {
   const projectsContext = useContext(ProjectContext)
@@ -58,8 +59,15 @@ const Projects = () => {
         >
           <div
             className='article-image-section article-section'
+            style={{
+              backgroundImage: `url(${item.images[0].original})`,
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              minHeight: '12rem'
+            }}
           >
-            <ReactImageGallery
+            {/*             <ReactImageGallery
               items={item.images}
               alt={userLanguage === 'es' ? item.titleEs : item.titleEn}
               showThumbnails={false}
@@ -71,9 +79,9 @@ const Projects = () => {
               renderRightNav={(onClick, disabled) => (
                 <MdDoubleArrow size={92} className='image-right-nav' onClick={onClick} disabled={disabled} />
               )}
-            />
+            /> */}
           </div>
-          <div className='article-description-section article-section' style={{ gap: '2rem' }}>
+          <div className='article-description-section article-section' style={{ gap: '.5rem' }}>
             <div className='article-description-stack'>
               {item.stack.map(stack => {
                 return <DynamicIcon title={stack} key={stack} name={stack} size={64} />
@@ -85,9 +93,9 @@ const Projects = () => {
             <h2>{userLanguage === 'es' ? item.titleEs : item.titleEn}</h2>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
               {item.deploy && (
-                <a type='button' href={item.deploy} target='_blank' rel='noopener noreferrer' className='button'>Visitar</a>
+                <a type='button' href={item.deploy} target='_blank' rel='noopener noreferrer' className='button'><Text tid='deployButton' /></a>
               )}
-              <a type='button' href={item.repo} target='_blank' rel='noopener noreferrer' className='alt-button'>Repositorio</a>
+              <a type='button' href={item.repo} target='_blank' rel='noopener noreferrer' className='alt-button'><Text tid='repoButton' /></a>
             </div>
           </div>
           <div className='article-nav-section article-section'>

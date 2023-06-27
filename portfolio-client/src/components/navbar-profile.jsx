@@ -24,7 +24,8 @@ function NavbarProfile ({ navToggled, handleNavToggle }) {
           <NavLink
             to='/'
             style={({ isActive }) => ({
-              color: isActive ? 'grey' : ''
+              color: isActive ? 'grey' : '',
+              pointerEvents: isActive ? 'none' : ''
             })}
             onClick={handleNavToggle}
           ><Text tid='navLink1' />
@@ -32,15 +33,16 @@ function NavbarProfile ({ navToggled, handleNavToggle }) {
           <NavLink
             to='/projects'
             style={({ isActive }) => ({
-              color: isActive ? 'grey' : ''
+              color: isActive ? 'grey' : '',
+              pointerEvents: isActive ? 'none' : ''
             })}
             onClick={handleNavToggle}
           ><Text tid='navLink2' />
           </NavLink>
         </div>
         <div id='profile-nav-social-section' className='profile-nav-section'>
-          <div style={{ display: 'flex', gap: '.5rem' }}>
-            <LanguageSelector />
+          <div style={{ display: 'flex', gap: '.6rem' }}>
+            <LanguageSelector handleNavToggle={handleNavToggle} />
           </div>
           <button title='theme' className='theme-button' onClick={changeTheme}><Text tid='theme' /></button>
           <Link to='/login' type='button' title='login' className='alt-button'><Text tid='login' /></Link>

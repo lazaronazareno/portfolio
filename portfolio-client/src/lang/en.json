@@ -4,10 +4,11 @@
   "theme": "Change Theme",
   "login": "Login",
   "occupation": "Web Developer",
-  "intro": "Curious, creative, self-taught, responsible. I would like to improve myself in the world of programming to be able to teach and share my knowledge. I feel confident and ready to face new challenges.",
+  "intro": "Curious, creative, self-taught, responsible. I build digital experiences for the web. Focused on creating aesthetically appealing and user accessible applications. Experience working in teams and creating landing pages.",
+  "intro-link": "You can check my projects here.",
   "copyright": "Copyright",
-  "cvLink" : "https://drive.google.com/file/d/1ztsMeLi4X6YMvEKSSdggr49LkuigJE15/view?usp=sharing",
-  "deployButton" : "Visit",
-  "repoButton" : "Github",
-  "password" : "Password"
+  "cvLink": "https://drive.google.com/file/d/1ztsMeLi4X6YMvEKSSdggr49LkuigJE15/view?usp=sharing",
+  "deployButton": "Visit",
+  "repoButton": "Github",
+  "password": "Password"
 }
