@@ -5,6 +5,7 @@ export function AuthMiddleware (req, res, next) {
 
   if (!token) {
     res.status(401).json({ msg: 'No autorizado. No hay token ' })
+    return
   }
 
   try {

@@ -22,7 +22,9 @@ export const createProject = async (req, res) => {
 
 export const getProjects = async (req, res) => {
   try {
-    const projects = await Project.find()
+    const projects = await Project.aggregate([
+      { $sample: { size: 20 } }
+    ])
 
     res.json(projects)
   } catch (error) {

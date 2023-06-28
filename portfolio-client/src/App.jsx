@@ -43,7 +43,7 @@ function App () {
                         <NavbarProfile navToggled={navToggled} handleNavToggle={handleNavToggle} />
                         <Profile />
                       </>
-            }
+                    }
                   />
                   <Route
                     exact path='/projects' element={
@@ -51,7 +51,7 @@ function App () {
                         <Navbar navToggled={navToggled} handleNavToggle={handleNavToggle} />
                         <Projects />
                       </>
-            }
+                    }
                   />
                   <Route
                     exact path='/login' element={
@@ -59,7 +59,7 @@ function App () {
                         <Navbar navToggled={navToggled} handleNavToggle={handleNavToggle} />
                         <Login />
                       </>
-            }
+                    }
                   />
                   <Route exact element={<PrivateRoute />}>
                     <Route
@@ -68,7 +68,7 @@ function App () {
                           <NavbarProfile navToggled={navToggled} handleNavToggle={handleNavToggle} />
                           <AdminPanel />
                         </>
-              }
+                      }
                     />
                   </Route>
                 </Routes>
