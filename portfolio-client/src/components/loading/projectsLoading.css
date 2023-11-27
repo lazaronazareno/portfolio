@@ -1,0 +1,54 @@
+.icon-skeleton {
+  width: 64px;
+  height: 64px;
+  background-color: grey;
+  border-radius: 1rem;
+}
+
+.title-skeleton {
+  background-color: grey;
+  height: 4rem;
+  border-radius: 0.5rem;
+}
+
+.button-skeleton {
+  background-color: grey;
+  border-radius: 0.2rem;
+  width: 120px;
+  height: 40px;
+  transform: skew(-21deg);
+}
+
+.arrow-skeleton {
+  background: none;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-icon-skeleton {
+  display: inline-block;
+  margin: 10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.left {
+  border-width: 20px 40px 20px 0;
+  border-color: transparent grey transparent transparent;
+}
+
+.right {
+  border-width: 20px 0 20px 40px;
+  border-color: transparent transparent transparent grey;
+}
+
+.p-skeleton {
+  background-color: grey;
+  height: 1.2rem;
+  width: 80%;
+  border-radius: 0.5rem;
+  align-self: center;
+}
