@@ -1,14 +1,20 @@
+.image-skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
 .icon-skeleton {
   width: 64px;
   height: 64px;
   background-color: grey;
   border-radius: 1rem;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .title-skeleton {
   background-color: grey;
   height: 4rem;
   border-radius: 0.5rem;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .button-skeleton {
@@ -17,6 +23,7 @@
   width: 120px;
   height: 40px;
   transform: skew(-21deg);
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .arrow-skeleton {
@@ -38,11 +45,13 @@
 .left {
   border-width: 20px 40px 20px 0;
   border-color: transparent grey transparent transparent;
+  animation: skeleton-icon-left-loading 1s linear infinite alternate;
 }
 
 .right {
   border-width: 20px 0 20px 40px;
   border-color: transparent transparent transparent grey;
+  animation: skeleton-icon-right-loading 1s linear infinite alternate;
 }
 
 .p-skeleton {
@@ -51,4 +60,32 @@
   width: 80%;
   border-radius: 0.5rem;
   align-self: center;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: grey;
+  }
+  100% {
+    background-color: rgb(189, 188, 188);
+  }
+}
+
+@keyframes skeleton-icon-right-loading {
+  0% {
+    border-color: transparent transparent transparent grey;
+  }
+  100% {
+    border-color: transparent transparent transparent rgb(189, 188, 188);
+  }
+}
+
+@keyframes skeleton-icon-left-loading {
+  0% {
+    border-color: transparent grey transparent transparent;
+  }
+  100% {
+    border-color: transparent rgb(189, 188, 188) transparent transparent;
+  }
 }

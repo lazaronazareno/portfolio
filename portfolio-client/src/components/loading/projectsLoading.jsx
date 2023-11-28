@@ -4,7 +4,7 @@ const ProjectsLoading = () => {
   return (
     <article>
       <div
-        className='article-image-section article-section'
+        className='article-image-section article-section image-skeleton'
         style={{
           backgroundImage:
             'url(https://cdn-icons-png.flaticon.com/512/1160/1160358.png)',
