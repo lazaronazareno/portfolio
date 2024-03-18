@@ -22,9 +22,7 @@ export const createProject = async (req, res) => {
 
 export const getProjects = async (req, res) => {
   try {
-    const projects = await Project.aggregate([
-      { $sample: { size: 20 } }
-    ])
+    const projects = await Project.aggregate([{ $sample: { size: 20 } }])
 
     res.json(projects)
   } catch (error) {
@@ -40,7 +38,16 @@ export const updateProject = async (req, res) => {
   }
 
   try {
-    const { titleEn, titleEs, descriptionEs, descriptionEn, images, stack, deploy, repo } = req.body
+    const {
+      titleEn,
+      titleEs,
+      descriptionEs,
+      descriptionEn,
+      images,
+      stack,
+      deploy,
+      repo
+    } = req.body
 
     let project = await Project.findById(req.params.id)
 
@@ -63,7 +70,11 @@ export const updateProject = async (req, res) => {
     newProject.deploy = deploy
     newProject.repo = repo
 
-    project = await Project.findByIdAndUpdate({ _id: req.params.id }, { $set: newProject }, { new: true })
+    project = await Project.findByIdAndUpdate(
+      { _id: req.params.id },
+      { $set: newProject },
+      { new: true }
+    )
 
     res.json({ project })
   } catch (error) {
@@ -86,6 +97,21 @@ export const deleteProject = async (req, res) => {
 
     await Project.findOneAndRemove({ _id: req.params.id })
     res.json({ msg: 'Proyecto eliminado' })
+  } catch (error) {
+    console.log(error)
+    res.status(500).send('Hubo un error')
+  }
+}
+
+export const getProjectById = async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id)
+
+    if (!project) {
+      return res.status(404).json({ msg: 'Proyecto no encontrado' })
+    }
+
+    res.json(project)
   } catch (error) {
     console.log(error)
     res.status(500).send('Hubo un error')

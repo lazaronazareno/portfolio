@@ -6,15 +6,23 @@ import { check } from 'express-validator'
 const router = express.Router()
 
 // /api/projects
-router.post('/', AuthMiddleware, [
-  check('name', 'El nombre del proyecto es requerido').not().isEmpty()
-], projectsControllers.createProject)
+router.post(
+  '/',
+  AuthMiddleware,
+  [check('name', 'El nombre del proyecto es requerido').not().isEmpty()],
+  projectsControllers.createProject
+)
 
 router.get('/', projectsControllers.getProjects)
 
-router.put('/:id', AuthMiddleware, [
-  check('name', 'El nombre del proyecto es requerido').not().isEmpty()
-], projectsControllers.updateProject)
+router.get('/:id', projectsControllers.getProjectById)
+
+router.put(
+  '/:id',
+  AuthMiddleware,
+  [check('name', 'El nombre del proyecto es requerido').not().isEmpty()],
+  projectsControllers.updateProject
+)
 
 router.delete('/:id', AuthMiddleware, projectsControllers.deleteProject)
 
